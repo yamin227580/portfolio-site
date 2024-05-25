@@ -17,17 +17,47 @@ const Home = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: { xs: "column", md: "row" },
           justifyContent: "center",
           backgroundColor: lightTheme ? "info.main" : "success.main",
           mt: -1.3,
-          pb: 15,
+          pb: { xs: 10, md: 15 },
         }}
       >
+        <Slide
+          direction="left"
+          in={isVisibleForImg}
+          mountOnEnter
+          unmountOnExit
+          timeout={700}
+        >
+          <Box
+            sx={{
+              width: { xs: "100%", md: "30%" },
+              textAlign: "center",
+              ml: { xs: 0, sm: -10 },
+              display: { xs: "block", md: "none" },
+            }}
+          >
+            <Image
+              src="/profile.jpg"
+              alt="profile-image"
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{
+                width: "50%",
+                height: "auto",
+                marginTop: "60px",
+                marginBottom: "-30px",
+              }}
+            />
+          </Box>
+        </Slide>
         <Box
           sx={{
-            width: { xs: "50%", md: "30%" },
-            ml: { xs: 1, sm: 10 },
+            width: { xs: "90%", md: "30%" },
+            ml: { xs: 3, sm: 10 },
             color: lightTheme ? "black" : "info.main",
           }}
         >
@@ -91,6 +121,7 @@ const Home = () => {
               width: { xs: "50%", md: "30%" },
               textAlign: "center",
               ml: { xs: 0, sm: -10 },
+              display: { xs: "none", md: "block" },
             }}
           >
             <Image
