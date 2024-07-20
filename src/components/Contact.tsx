@@ -69,7 +69,7 @@ const Contact = () => {
             sx={{
               fontSize: 36,
               textAlign: "center",
-              pt: { xs: 10, sm: 20 },
+              pt: { xs: 15, sm: 17 },
               userSelect: "none",
             }}
             id="up"
@@ -85,6 +85,7 @@ const Contact = () => {
               mt: 4,
               fontStyle: "italic",
               userSelect: "none",
+              display: { xs: "none", sm: "block" },
             }}
             id="upTwo"
           >
@@ -96,7 +97,7 @@ const Contact = () => {
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
             justifyContent: "center",
-            mt: 8,
+            mt: { xs: 4, sm: 8 },
           }}
         >
           <Box sx={{ width: { xs: "90%", md: "30%" } }}>

@@ -19,10 +19,10 @@ const About = () => {
           setIsVisible(true);
           setTimeout(() => {
             setIsVisibleForImg(true);
-          }, 1000);
+          }, 1200);
           setTimeout(() => {
             setIsVisibleForText(true);
-          }, 1500);
+          }, 2200);
         }
       });
     }, options);
@@ -118,9 +118,7 @@ const About = () => {
                 Expressjs and Nextjs to ensure that everything runs smoothly.
                 Outside of coding, I am passionate about staying up-to-date with
                 the latest trends and technologies in the ever-evolving world of
-                web development. Thanks for dropping by! Whether you are looking
-                to collaborate on a project or just want to chat about all
-                things web development, I am always up for a conversation.
+                web development.
               </Typography>
               <Box
                 sx={{

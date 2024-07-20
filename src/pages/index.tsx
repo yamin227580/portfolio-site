@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setLightDark } from "@/store/slices/lightDardSlice";
 import CloseIcon from "@mui/icons-material/Close";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import MenuIcon from "@mui/icons-material/Menu";
 import NightlightIcon from "@mui/icons-material/Nightlight";
@@ -14,6 +15,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import About from "../components/About";
 import Contact from "../components/Contact";
@@ -29,6 +31,7 @@ const HomePage = () => {
   const lightTheme = useAppSelector((state) => state.theme.isLightTheme);
 
   const dipatch = useAppDispatch();
+  const router = useRouter();
 
   const handleThemeChange = () => {
     dipatch(setLightDark(!lightTheme));
@@ -69,6 +72,10 @@ const HomePage = () => {
     scrollToSection(sectionId);
     setActiveSection(sectionId);
   };
+
+  const handleForLink = () => {
+    router.push("https://github.com/yamin227580");
+  };
   return (
     <Box
       sx={{
@@ -96,6 +103,14 @@ const HomePage = () => {
           zIndex: 50,
         }}
       >
+        <Box>
+          <IconButton
+            sx={{ display: { xs: "block", lg: "none" }, ml: -2 }}
+            onClick={() => setOpenDrawer(true)}
+          >
+            <MenuIcon sx={{ fontSize: 28, color: "#E8F6EF" }} />
+          </IconButton>
+        </Box>
         <Box
           sx={{
             width: "20%",
@@ -103,7 +118,11 @@ const HomePage = () => {
             color: "primary.main",
           }}
         >
-          <Typography sx={{ fontSize: 24, fontWeight: "bold" }}>YMN</Typography>
+          <Typography
+            sx={{ fontSize: 24, fontWeight: "bold", ml: { xs: -2, sm: 0 } }}
+          >
+            YMN
+          </Typography>
         </Box>
         <Box
           sx={{
@@ -149,34 +168,37 @@ const HomePage = () => {
         </Box>
         <Box
           sx={{
-            width: "20%",
             textAlign: "center",
-            ml: -14,
+            ml: -2,
             mt: 0.7,
           }}
           onClick={handleThemeChange}
         >
           {lightTheme ? (
             <NightlightIcon
-              sx={{ fontSize: 31, cursor: "pointer", color: "info.main" }}
+              sx={{ fontSize: 28, cursor: "pointer", color: "info.main" }}
             />
           ) : (
             <LightModeIcon
-              sx={{ fontSize: 31, cursor: "pointer", color: "info.main" }}
+              sx={{ fontSize: 28, cursor: "pointer", color: "info.main" }}
             />
           )}
         </Box>
         <Box>
-          <IconButton
-            sx={{ display: { xs: "block", lg: "none" } }}
-            onClick={() => setOpenDrawer(true)}
-          >
-            <MenuIcon sx={{ fontSize: "30px", color: "#E8F6EF" }} />
-          </IconButton>
+          <GitHubIcon
+            sx={{
+              display: { xs: "block", lg: "none" },
+              fontSize: 28,
+              cursor: "pointer",
+              color: "info.main",
+              mr: -1,
+            }}
+            onClick={handleForLink}
+          />
         </Box>
       </Box>
       <Drawer
-        anchor="right"
+        anchor="left"
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
       >

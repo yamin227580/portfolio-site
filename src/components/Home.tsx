@@ -10,7 +10,7 @@ const Home = () => {
 
   setTimeout(() => {
     setIsVisibleForText(true);
-  }, 500);
+  }, 1000);
 
   return (
     <section id="home">
@@ -29,7 +29,7 @@ const Home = () => {
           in={isVisibleForImg}
           mountOnEnter
           unmountOnExit
-          timeout={700}
+          timeout={1200}
         >
           <Box
             sx={{
@@ -64,7 +64,7 @@ const Home = () => {
           <Zoom
             in={isVisibleForText}
             style={{
-              transitionDuration: "900ms",
+              transitionDuration: "1000ms",
             }}
           >
             <Box>

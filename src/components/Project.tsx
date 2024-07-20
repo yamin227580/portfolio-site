@@ -22,36 +22,37 @@ const projectData = [
     name: "Mini-Commerce",
     description: "E-commerce Website",
     image: "/mini-e.png",
-    delay: "1500ms",
+    delay: "2000ms",
     className: "e-com",
     href: "https://mini-commerce-sigma.vercel.app/",
   },
   {
-    name: "Business Solution",
-    description: "Single Page Website",
-    image: "/single.png",
-    delay: "2100ms",
+    name: "Note App",
+    description: "Note application",
+    image: "/k.png",
+    delay: "3000ms",
     className: "single",
-    href: "https://single-page-website-three-gold.vercel.app/",
+    href: "https://note-app-gray-seven.vercel.app/",
   },
   {
     name: "My Personal Website",
     description: "Portfolio Website",
     image: "/personal.png",
-    delay: "2600ms",
+    delay: "4000ms",
     className: "portfolio",
   },
   {
     name: "Typing Test Game",
     description: "Typing Website",
     image: "/game.png",
-    delay: "3100ms",
+    delay: "5000ms",
     className: "game",
     href: "https://typing-test-game-eta.vercel.app/",
   },
 ];
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [init, setInit] = useState(false);
 
   useEffect(() => {
     const options = {
@@ -63,11 +64,17 @@ const Projects = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const projectTitle = document.getElementById("projectTitle");
-          projectTitle?.classList.remove("up");
+          if (!init) {
+            const projectTitle = document.getElementById("projectTitle");
+            projectTitle?.classList.add("up");
+            setTimeout(() => {
+              projectTitle?.classList.remove("up");
+            }, 500);
+            setInit(true);
+          }
           setTimeout(() => {
             setIsVisible(true);
-          }, 500);
+          }, 1200);
         }
       });
     }, options);
@@ -82,14 +89,13 @@ const Projects = () => {
         observer.unobserve(target);
       }
     };
-  }, []);
+  }, [init]);
 
   return (
     <section id="projects">
       <Box sx={{ backgroundColor: "secondary.main", pb: { xs: 5, sm: 15 } }}>
         <Typography
           id="projectTitle"
-          className="up"
           sx={{
             fontSize: 30,
             textAlign: "center",

@@ -30,7 +30,7 @@ const Skills = () => {
           setTimeout(() => {
             setIsVisible(true);
             setIsVisibleForTwo(true);
-          }, 700);
+          }, 1000);
 
           // Simulating progress update with random values
           const updateProgress = (
@@ -86,7 +86,7 @@ const Skills = () => {
         <Grow
           in={checked}
           style={{ transformOrigin: "0 0 0 0" }}
-          {...(checked ? { timeout: 1000 } : {})}
+          {...(checked ? { timeout: 1300 } : {})}
         >
           <Typography
             sx={{
@@ -110,7 +110,7 @@ const Skills = () => {
           <Zoom
             in={isVisible}
             style={{
-              transitionDuration: "1000ms",
+              transitionDuration: "1200ms",
             }}
           >
             <Box
@@ -223,7 +223,7 @@ const Skills = () => {
           <Zoom
             in={isVisibleForTwo}
             style={{
-              transitionDuration: "1000ms",
+              transitionDuration: "1200ms",
             }}
           >
             <Box
