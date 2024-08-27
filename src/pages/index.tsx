@@ -28,14 +28,9 @@ const menus = ["Home", "About", "Skills", "Projects", "Contact"];
 const HomePage = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
-  const lightTheme = useAppSelector((state) => state.theme.isLightTheme);
-
   const dipatch = useAppDispatch();
   const router = useRouter();
-
-  const handleThemeChange = () => {
-    dipatch(setLightDark(!lightTheme));
-  };
+  const { theme } = useAppSelector((state) => state.theme);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +56,14 @@ const HomePage = () => {
     handleScroll();
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const value = localStorage.getItem("theme") ?? "light";
+      localStorage.setItem("theme", value);
+      dipatch(setLightDark(value));
+    }
+  }, []);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -76,6 +79,9 @@ const HomePage = () => {
   const handleForLink = () => {
     router.push("https://github.com/yamin227580");
   };
+
+  // if (theme === "") return null;
+
   return (
     <Box
       sx={{
@@ -172,9 +178,12 @@ const HomePage = () => {
             ml: -2,
             mt: 0.7,
           }}
-          onClick={handleThemeChange}
+          onClick={() => {
+            dipatch(setLightDark(theme === "light" ? "dark" : "light"));
+            localStorage.setItem("theme", theme === "light" ? "dark" : "light");
+          }}
         >
-          {lightTheme ? (
+          {theme === "light" ? (
             <NightlightIcon
               sx={{ fontSize: 28, cursor: "pointer", color: "info.main" }}
             />

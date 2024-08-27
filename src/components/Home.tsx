@@ -6,7 +6,7 @@ import { useState } from "react";
 const Home = () => {
   const [isVisibleForImg, setIsVisibleForImg] = useState(true);
   const [isVisibleForText, setIsVisibleForText] = useState(false);
-  const lightTheme = useAppSelector((state) => state.theme.isLightTheme);
+  const { theme } = useAppSelector((state) => state.theme);
 
   setTimeout(() => {
     setIsVisibleForText(true);
@@ -19,7 +19,7 @@ const Home = () => {
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           justifyContent: "center",
-          backgroundColor: lightTheme ? "info.main" : "success.main",
+          backgroundColor: theme === "light" ? "info.main" : "success.main",
           mt: -1.3,
           pb: { xs: 10, md: 15 },
         }}
@@ -58,7 +58,7 @@ const Home = () => {
           sx={{
             width: { xs: "90%", md: "30%" },
             ml: { xs: 3, sm: 10 },
-            color: lightTheme ? "black" : "info.main",
+            color: theme === "light" ? "black" : "info.main",
           }}
         >
           <Zoom

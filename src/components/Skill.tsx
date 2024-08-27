@@ -14,7 +14,7 @@ const Skills = () => {
   const [nodeProgress, setNodeProgress] = useState(0);
   const [expressProgress, setExpressProgress] = useState(0);
   const [nextProgress, setNextProgress] = useState(0);
-  const lightTheme = useAppSelector((state) => state.theme.isLightTheme);
+  const { theme } = useAppSelector((state) => state.theme);
 
   useEffect(() => {
     const options = {
@@ -78,8 +78,8 @@ const Skills = () => {
     <section id="skills">
       <Box
         sx={{
-          backgroundColor: lightTheme ? "white" : "success.main",
-          color: lightTheme ? "black" : "info.main",
+          backgroundColor: theme === "light" ? "info.main" : "success.main",
+          color: theme === "light" ? "black" : "info.main",
           pb: { xs: 3, sm: 10 },
         }}
       >

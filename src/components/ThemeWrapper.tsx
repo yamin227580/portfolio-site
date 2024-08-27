@@ -8,10 +8,12 @@ interface Prop {
 }
 
 const ThemeWrapper = ({ children }: Prop) => {
-  const isLightTheme = useAppSelector((state) => state.theme.isLightTheme);
-  const theme = isLightTheme ? lightTheme : darkTheme;
-
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  const { theme } = useAppSelector((state) => state.theme);
+  return (
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      {children}
+    </ThemeProvider>
+  );
 };
 
 export default ThemeWrapper;

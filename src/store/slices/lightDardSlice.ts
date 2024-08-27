@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Define a type for the slice state
 interface lightDarkState {
-  isLightTheme: boolean;
+  theme: string;
 }
 
 // Define the initial state using that type
 const initialState: lightDarkState = {
-  isLightTheme: true,
+  theme: "",
 };
 
 export const lightDarkSlice = createSlice({
@@ -16,7 +16,7 @@ export const lightDarkSlice = createSlice({
   initialState,
   reducers: {
     setLightDark: (state, action) => {
-      state.isLightTheme = action.payload;
+      state.theme = action.payload;
     },
   },
 });

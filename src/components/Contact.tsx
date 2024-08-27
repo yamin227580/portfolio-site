@@ -8,7 +8,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { useEffect } from "react";
 
 const Contact = () => {
-  const lightTheme = useAppSelector((state) => state.theme.isLightTheme);
+  const { theme } = useAppSelector((state) => state.theme);
   useEffect(() => {
     const options = {
       root: null,
@@ -59,8 +59,8 @@ const Contact = () => {
     <section id="contact">
       <Box
         sx={{
-          color: lightTheme ? "black" : "info.main",
-          backgroundColor: lightTheme ? "white" : "success.main",
+          color: theme === "light" ? "black" : "info.main",
+          backgroundColor: theme === "light" ? "info.main" : "success.main",
           pb: 5,
         }}
       >
@@ -119,7 +119,7 @@ const Contact = () => {
               >
                 <PhoneIcon sx={{ fontSize: 27, cursor: "pointer" }} />
                 <Typography sx={{ ml: 2, userSelect: "none" }}>
-                  +66 801645751
+                  0610392073
                 </Typography>
               </Box>
               <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
@@ -155,11 +155,11 @@ const Contact = () => {
                     width: 500,
                     ml: 2,
                     "& .MuiInputBase-input::placeholder": {
-                      color: lightTheme ? "black" : "info.main",
+                      color: theme === "light" ? "black" : "info.main",
                     },
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
-                        borderColor: lightTheme ? "black" : "info.main",
+                        borderColor: theme === "light" ? "black" : "info.main",
                       },
                     },
                   }}
@@ -173,11 +173,11 @@ const Contact = () => {
                     width: 500,
                     ml: 2,
                     "& .MuiInputBase-input::placeholder": {
-                      color: lightTheme ? "black" : "info.main",
+                      color: theme === "light" ? "black" : "info.main",
                     },
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
-                        borderColor: lightTheme ? "black" : "info.main",
+                        borderColor: theme === "light" ? "black" : "info.main",
                       },
                     },
                   }}
@@ -195,18 +195,18 @@ const Contact = () => {
                     width: 500,
                     ml: 2,
                     "& .MuiInputBase-root": {
-                      color: lightTheme ? "black" : "info.main",
+                      color: theme === "light" ? "black" : "info.main",
                     },
                     "& .MuiInputBase-inputMultiline::placeholder": {
-                      color: lightTheme ? "black" : "info.main",
+                      color: theme === "light" ? "black" : "info.main",
                     },
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
-                        borderColor: lightTheme ? "black" : "info.main",
+                        borderColor: theme === "light" ? "black" : "info.main",
                       },
                     },
                     "& .MuiInputLabel-root": {
-                      color: lightTheme ? "black" : "info.main",
+                      color: theme === "light" ? "black" : "info.main",
                     },
                   }}
                 />
