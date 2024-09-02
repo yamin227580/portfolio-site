@@ -27,8 +27,8 @@ const projectData = [
     href: "https://mini-commerce-sigma.vercel.app/",
   },
   {
-    name: "Note App",
-    description: "Note application",
+    name: "Project Costs Manager",
+    description: "Project costs management application",
     image: "/k.png",
     delay: "3000ms",
     className: "single",
