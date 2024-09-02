@@ -119,7 +119,7 @@ const Contact = () => {
               >
                 <PhoneIcon sx={{ fontSize: 27, cursor: "pointer" }} />
                 <Typography sx={{ ml: 2, userSelect: "none" }}>
-                  0610392073
+                  +66 610392073
                 </Typography>
               </Box>
               <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
